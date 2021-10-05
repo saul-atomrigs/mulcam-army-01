@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+/* 새로 추가 */
+.picture {
+  height: 5em;
+  width: 5em;
+  border: solid 1px;
+  border-color: #8100b4;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.left {
+  align-items: left;
+  margin-bottom: 0px;
+}
