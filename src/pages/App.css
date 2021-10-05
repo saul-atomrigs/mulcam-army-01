@@ -51,3 +51,9 @@
   align-items: left;
   margin-bottom: 0px;
 }
+
+/* sticky header 에 가려지는거 방지 (header의 height와 margin-top 동일하게 80px)*/
+.dataBoard {
+  margin-top: 80px;
+  border-radius: 24px;
+}
