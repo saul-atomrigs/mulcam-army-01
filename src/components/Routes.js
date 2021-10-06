@@ -6,9 +6,9 @@ import {
 } from 'react-router-dom';
 
 import Home from '../pages/Home';
-import BlackpinkJisoo from '../pages/BlackpinkJisoo'
-import BtsJimin from '../pages/BtsJimin'
-import TwiceSana from '../pages/TwiceSana'
+import BlackpinkJisoo from '../pages/blackpink'
+import BtsJimin from '../pages/bts'
+import TwiceSana from '../pages/twice'
 
 class Routes extends React.Component {
     render() {
