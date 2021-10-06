@@ -1,13 +1,12 @@
-import './App.css';
-// import Layout from "./components/Layout/Layout"
+import './pages/App.css';
 import Routes from './components/Routes';
-
+// import Layout from "./components/Layout/Layout"
 // import { firestore } from "./firebase";
 
 
 function App() {
   return (
-    Routes
+    <Routes />
   );
 }
 

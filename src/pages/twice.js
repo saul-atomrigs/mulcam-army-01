@@ -4,7 +4,7 @@ import Footer from '../components/Footer/Footer'
 import Box from '../components/Box1'
 import Container from '@mui/material/Container';
 
-const TwiceSana = () => {
+const twice = () => {
     return (
         <>
             <Header />
@@ -18,4 +18,4 @@ const TwiceSana = () => {
     )
 }
 
-export default TwiceSana
+export default twice

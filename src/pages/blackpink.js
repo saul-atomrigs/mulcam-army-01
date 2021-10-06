@@ -5,7 +5,7 @@ import Box from '../components/Box1'
 import Container from '@mui/material/Container';
 
 
-const BlackpinkJisoo = () => {
+const blackpink = () => {
     return (
         <>
             <Header />
@@ -17,5 +17,5 @@ const BlackpinkJisoo = () => {
     )
 }
 
-export default BlackpinkJisoo
+export default blackpink
 
