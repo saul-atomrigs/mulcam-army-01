@@ -1,0 +1,37 @@
+{
+    "idol": {
+        "blackpink": {
+            "jisoo": {
+                "birthday": "Which one is correct team name in NBA?",
+                "nickname": [
+                    "New York Bulls",
+                    "Los Angeles Kings",
+                    "Golden State Warriros",
+                    "Huston Rocket"
+                ],
+                "twitter": "Huston Rocket"
+            }
+        },
+        "bts": {
+            "jimin": {
+                "birthday": "5 + 7 = ?",
+                "nickname": [
+                    "11",
+                    "12",
+                    "13"
+                ],
+                "twitter": "12"
+            },
+            "rapmon": {
+                "birthday": "12 - 8 = ?",
+                "nickname": [
+                    "1",
+                    "2",
+                    "3",
+                    "4"
+                ],
+                "twitter": "4"
+            }
+        }
+    }
+}
