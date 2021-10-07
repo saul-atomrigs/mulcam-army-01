@@ -30,18 +30,13 @@ const Profile = ({ match }) => {
         <div>
             <ul><MenuIcon /></ul>
             <ul><Link to='/'>Logo</Link></ul>
-            <ul><CloseIcon /></ul>
+            <ul><Link to='/'><CloseIcon style={{ position: 'fixed', right: '30', fontSize: 'lg' }} /></Link></ul>
 
-            {/* TAB 또는 아이돌 선택 스크롤) */}
-            <ul>
-                <ul><Link to='/profile/bts'>BTS</Link></ul>
-                <ul><Link to='/profile/blackpink'>blackpink</Link></ul>
-            </ul>
 
             {/* 메인 페이지 */}
             <Stack direction='row'>
                 {/* 왼쪽 사이드 컬럼 */}
-                <ul>
+                <ul style={{ position: 'fixed' }}>
                     <Stack direction='colunm'>
                         <img
                             src={profile.img}
@@ -49,16 +44,25 @@ const Profile = ({ match }) => {
                             borderRadius="24px"
                             alt={username} />
                     </Stack>
-                    <h3>
-                        {username} (@{profile.twitter})
-                    </h3>
+                    <ul>
+                        <h3>
+                            {username} (@{profile.twitter})
+                        </h3>
+                    </ul>
                     <Stack direction='row'>
-
+                        <ul>페이스북</ul>
+                        <ul>유튜브</ul>
+                        <ul>팬카페</ul>
                     </Stack>
+                    <br />
+                    {/* TAB 또는 아이돌 선택 스크롤) */}
+                    <ul><Link to='/profile/bts'>BTS</Link></ul>
+                    <ul><Link to='/profile/blackpink'>blackpink</Link></ul>
+
                 </ul>
 
                 {/* 오른쪽 사이드 컬럼 */}
-                <ul>
+                <ul style={{ position: 'relative', marginLeft: '300px' }}>
                     <ul>
                         <h3> Youtube Viewcount </h3>
                         <YoutubeViewcount />
