@@ -1,13 +1,15 @@
 const profileData = {
     blackpink: {
-        twitter: '',
-        youtubeViewcount: '',
+        img: 'https://img.sbs.co.kr/newimg/news/20200928/201475548_1280.jpg',
+        twitter: 'ygofficialblink',
+        youtubeViewcount: '+3M',
         languages: '',
-        score: '',
+        score: '+1K',
         wordcloud: '',
     },
     bts: {
-        twitter: '@bts',
+        img: 'https://d3tvwjfge35btc.cloudfront.net/Assets/36/085/L_p0148708536.jpg',
+        twitter: 'BTS_twt',
         youtubeViewcount: '+1M',
         languages: 'EN, ES, KR',
         score: '+2M',
