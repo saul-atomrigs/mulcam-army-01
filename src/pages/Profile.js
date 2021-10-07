@@ -1,20 +1,36 @@
 import React from 'react'
-import Header from '../components/Header/Header'
-import Footer from '../components/Footer/Footer'
-import Box from '../components/Box1'
-import Container from '@mui/material/Container';
 
+const profileData = {
+    blackpink: {
+        name: 'Jisoo',
+        birthday: '',
+    },
+    bts: {
+        name: 'jimin',
+        birthday: '',
+    }
+}
 
-const Profile = () => {
+const Profile = ({ match }) => {
+    const { username } = match.params
+    const profile = profileData[username]
+
+    if (!profile) {
+        return (
+            <div>존재하지 않는 유저입니다</div>
+        )
+    }
     return (
-        <>
-            <Header />
-            <Container className='dataBoard'>
-                <Box />
-            </Container>
-            <Footer />
-        </>
+        <div>
+            <h3>
+                {username}({profile.name})
+            </h3>
+            <p>
+                {profile.birthday}
+            </p>
+        </div>
     )
 }
 
 export default Profile
+
