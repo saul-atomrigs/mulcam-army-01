@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import profileData from './profileData'
 
-import { TwitterTweetEmbed, TwitterTimelineEmbed } from 'react-twitter-embed'
+import { TwitterTimelineEmbed } from 'react-twitter-embed'
 
 
 import MenuIcon from '@mui/icons-material/Menu';

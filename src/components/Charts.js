@@ -9,7 +9,7 @@ export default function Charts() {
                 height: '150px',
                 borderRadius: '24px',
             }}>
-            <h1>Melon</h1>
+            <h1>chart</h1>
         </Box>
     )
 }
