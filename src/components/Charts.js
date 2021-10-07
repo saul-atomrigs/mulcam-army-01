@@ -1,17 +1,15 @@
 import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
 
 
-export default function ProfileBox() {
+export default function Charts() {
     return (
         <Box
             sx={{
                 bgcolor: '#f2f2f2',
                 height: '150px',
                 borderRadius: '24px',
-                justifyContent: 'center',
-                alignItems: 'center',
             }}>
+            <h1>Melon</h1>
         </Box>
     )
 }

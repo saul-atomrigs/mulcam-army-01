@@ -9,8 +9,8 @@ import { TwitterTweetEmbed, TwitterTimelineEmbed } from 'react-twitter-embed'
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import Stack from '@mui/material/Stack';
-import { border } from '@mui/system';
-import ProfileBox from '../components/ProfileBox';
+import YoutubeViewcount from '../components/YoutubeViewcount';
+import Charts from '../components/Charts';
 import SelectChart from '../components/SelectChart';
 
 
@@ -50,26 +50,25 @@ const Profile = ({ match }) => {
                             alt={username} />
                     </Stack>
                     <h3>
-                        {username}({profile.twitter})
+                        {username} (@{profile.twitter})
                     </h3>
+                    <Stack direction='row'>
+
+                    </Stack>
                 </ul>
 
                 {/* 오른쪽 사이드 컬럼 */}
                 <ul>
                     <ul>
                         <h3> Youtube Viewcount </h3>
-                        <ProfileBox>
-                            <h1> {profile.youtubeViewcount}</h1>
-                        </ProfileBox>
+                        <YoutubeViewcount />
                     </ul>
                     <br />
                     <ul>
                         <h3> Charts </h3>
-                        <SelectChart>
-                        </SelectChart>
+                        <SelectChart />
                         <br />
-                        <ProfileBox>
-                        </ProfileBox>
+                        <Charts />
                     </ul>
                     <br />
                     <ul>
