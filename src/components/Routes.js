@@ -5,6 +5,8 @@ import Home from '../pages/Home';
 import BlackpinkJisoo from '../pages/blackpink'
 import BtsJimin from '../pages/bts'
 import TwiceSana from '../pages/twice'
+import Profile from '../pages/Profile';
+
 
 class Routes extends React.Component {
 
@@ -16,6 +18,7 @@ class Routes extends React.Component {
                     <Route exact path="/blackpink/jisoo" component={BlackpinkJisoo} />
                     <Route exact path="/bts/jimin" component={BtsJimin} />
                     <Route exact path="/twice/sana" component={TwiceSana} />
+                    <Route exact path="/profile/:username" component={Profile} />
                 </Switch>
             </Router>
         )

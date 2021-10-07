@@ -1,15 +1,5 @@
 import React from 'react'
-
-const profileData = {
-    blackpink: {
-        name: 'Jisoo',
-        birthday: '',
-    },
-    bts: {
-        name: 'jimin',
-        birthday: '',
-    }
-}
+import profileData from './profileData'
 
 const Profile = ({ match }) => {
     const { username } = match.params
@@ -23,10 +13,13 @@ const Profile = ({ match }) => {
     return (
         <div>
             <h3>
-                {username}({profile.name})
+                {username}({profile.twitter})
             </h3>
+            <h5>
+                {profile.youtubeViewcount}
+            </h5>
             <p>
-                {profile.birthday}
+                {profile.score}
             </p>
         </div>
     )
