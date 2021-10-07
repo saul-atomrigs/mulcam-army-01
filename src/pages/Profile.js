@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-import profileData from './profileData'
+import profileData from '../data/profileData'
 
 import { TwitterTimelineEmbed } from 'react-twitter-embed'
 
@@ -76,7 +76,7 @@ const Profile = ({ match }) => {
                         <TwitterTimelineEmbed
                             sourceType="profile"
                             screenName={profile.twitter}
-                            options={{ height: 380 }}
+                            options={{ height: '700px' }}
                         />
                     </ul>
                     <br />
