@@ -1,5 +1,4 @@
 import styles from './Header.module.css'
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ReactTooltip from 'react-tooltip';
 import Login from './Login'
 import { Link } from "react-router-dom";
