@@ -13,6 +13,8 @@ import InstagramEmbed from 'react-instagram-embed';
 
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import HelpIcon from '@mui/icons-material/Help';
+import ReactTooltip from 'react-tooltip';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 
@@ -32,51 +34,52 @@ const Profile = ({ match }) => {
     return (
         <Container>
             {/* 헤더 */}
-            <NavBarHeader>
-                {/* <div> */}
-                <NavBar1><MenuIcon style={{ position: 'fixed', left: '15', }} /></NavBar1>
-                <NavBar4><Link to='/'><CloseIcon style={{ position: 'fixed', right: '15', }} /></Link></NavBar4>
-                {/* </div> */}
-            </NavBarHeader>
+            <NavBar1><MenuIcon /></NavBar1>
+            <NavBar4><Link to='/'><CloseIcon /></Link></NavBar4>
 
             {/* 메인 페이지 */}
             {/* 왼쪽 사이드 컬럼 */}
             <SideBar>
-                {/* <ProfileImg> */}
                 <img
                     src={profile.img}
                     height="200"
                     alt={username} />
-                {/* <ProfileText> */}
                 <h3>
                     {username}
                 </h3>
                 <h5>
                     (@{profile.twitter})
                 </h5>
-                <SideBarLink>페이스북</SideBarLink>
-                <SideBarLink>유튜브</SideBarLink>
-                <SideBarLink>팬카페</SideBarLink>
+                <SNSLink>페이스북</SNSLink>
+                <SNSLink>유튜브</SNSLink>
+                <SNSLink>팬카페</SNSLink>
                 <br />
+                <SNSLink>틱톡</SNSLink>
+                <SNSLink>트위터</SNSLink>
+                <SNSLink>인스타그램</SNSLink>
                 {/* TAB 또는 아이돌 선택 스크롤) */}
                 <h4>인기아이돌</h4>
-                <SideBarLink><Link to='/profile/bts'>BTS</Link></SideBarLink>
-                <SideBarLink><Link to='/profile/blackpink'>blackpink</Link></SideBarLink>
-                <SideBarLink><Link to='/profile/twice'>twice</Link></SideBarLink>
-                <SideBarLink>hello world</SideBarLink>
-                {/* </ProfileText> */}
-                {/* </ProfileImg> */}
+                <Link to='/profile/bts' style={{ textDecoration: 'none' }}><SideBarLink>BTS</SideBarLink></Link>
+                <Link to='/profile/blackpink' style={{ textDecoration: 'none' }}><SideBarLink>블랙핑크</SideBarLink></Link>
+                <Link to='/profile/twice' style={{ textDecoration: 'none' }}><SideBarLink>트와이스</SideBarLink></Link>
             </SideBar>
 
             {/* 오른쪽 사이드 컬럼 */}
-            {/* <ul style={{ position: 'relative', marginLeft: '300px' }}> */}
             <Main>
-                <h3> Youtube Databoard </h3>
+                <div>
+                </div>
+                <p data-tip="영상별 스탯 크롤링, 감성분석을 이용한 댓글분석, 토픽모델링">
+                    <h3> Youtube Databoard
+                        <HelpIcon sx={{ size: 'small' }} />
+                    </h3>
+                    {/* <nav > */}
+                    {/* </nav> */}
+                </p>
+                <ReactTooltip
+                    place='bottom'
+                    effect='solid' />
                 <YoutubeViewcount />
-                {/* <YoutubeViewcountBox /> */}
             </Main>
-            <br />
-            <br />
             <EmpathyScoreBoard>
                 <ul>
                     <h3> 공감지수 </h3>
@@ -89,19 +92,6 @@ const Profile = ({ match }) => {
                     <Charts />
                 </Content1>
                 <EmpathyScore>
-                    <InstagramEmbed
-                        url='https://instagr.am/p/Zw9o4/'
-                        clientAccessToken='123|456'
-                        maxWidth={320}
-                        hideCaption={false}
-                        containerTagName='div'
-                        protocol=''
-                        injectScript
-                        onLoading={() => { }}
-                        onSuccess={() => { }}
-                        onAfterRender={() => { }}
-                        onFailure={() => { }}
-                    />
                 </EmpathyScore>
                 <Content3>
                     <SelectSNS />
@@ -112,6 +102,7 @@ const Profile = ({ match }) => {
                     />
                 </Content3>
             </ContentBox>
+            <Footer />
         </Container >
     )
 }
@@ -120,10 +111,10 @@ const Profile = ({ match }) => {
 const Container = styled.div`
   display: grid;
   height: 80vh;
-  grid-template-rows: 0.2fr 1fr 0.5fr 0.5fr 0.5fr;
+  grid-template-rows: 1fr 1fr 0.5fr 0.5fr 0.5fr;
   grid-temlate-columns: 0.5fr 1fr 1fr 1fr;
   grid-template-areas:
-    "nav nav nav nav"
+    "nav1 nav2 nav2 nav4"
     "sidebar main main main"
     "sidebar EmpathyScore EmpathyScore EmpathyScore"
     "sidebar content content content"
@@ -143,31 +134,25 @@ const Container = styled.div`
   }
 `;
 const NavBarHeader = styled.nav`
-  background: #eff0e4;
+  background: green;
 
 `
+
 const NavBar1 = styled.nav`
-  background: #eff0e4;
-  grid-area: nav;
-  margin: 0.5rem;
-  float: left;
-`;
+  grid-area: nav1;
+  float: right;
+  padding: 0.5rem;
+  `;
 
 const NavBar2 = styled.nav`
-background: #eff0e4;
-grid-area: nav;
-margin: 1rem;
-`
-const NavBar3 = styled.nav`
-background: #eff0e4;
-grid-area: nav;
-margin: 1rem;
-`
+  grid-area: nav2;
+  padding: 1rem;
+  `
 const NavBar4 = styled.nav`
-    background: #eff0e4;
-    grid-area: nav;
-    margin: 0.5rem;
-    float: right;
+  grid-area: nav4;
+  float: right;
+  padding: 0.5rem;
+
 `
 const Main = styled.main`
   background: #1f2128;
@@ -188,13 +173,21 @@ const ProfileImg = styled.div`
   position: fixed;
 `
 
-const ProfileText = styled.div`
-  position: fixed;
+const SNSLink = styled.div`
+text-align: left;
+display: inline-block;
+padding: 0.5rem;
+&:hover {
+    background-color: #d6d6d6;
+    border-radius: 3px;
+    cursor: pointer;
+  }
 `
 
 const SideBarLink = styled.div`
 text-align: left;
-margin: 0.5rem;
+display: block;
+padding: 0.5rem;
 &:hover {
     background-color: #d6d6d6;
     border-radius: 3px;
@@ -243,7 +236,7 @@ const Content3 = styled(Content1)``;
 const Footer = styled.footer`
   background: #ff9637;
   grid-area: footer;
-  padding: 0.25rem;
+  padding: 5rem;
 `;
 
 export default Profile

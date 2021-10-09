@@ -6,7 +6,7 @@ export default function Charts() {
         <>
             <Box
                 sx={{
-                    bgcolor: '#f2f2f2',
+                    bgcolor: '#fcfcfc',
                     height: '2rem',
                     borderRadius: '24px',
                 }}>
@@ -15,7 +15,7 @@ export default function Charts() {
 
             <Box
                 sx={{
-                    bgcolor: '#f2f2f2',
+                    bgcolor: '#fcfcfc',
                     height: '20rem',
                     borderRadius: '24px',
                 }}>

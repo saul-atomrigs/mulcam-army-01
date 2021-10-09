@@ -41,12 +41,6 @@ export default function YoutubeViewcount() {
                     <h3>워드클라우드</h3>
                 </YoutubeGrid>
             </YoutubeContainer>
-            {/* <YoutubeContainer>
-                <YouTube videoId='dyRsYk0LyA8' opts={opts}></YouTube>
-            </YoutubeContainer>
-            <YoutubeContainer>
-                <YouTube videoId='dyRsYk0LyA8' opts={opts}></YouTube>
-            </YoutubeContainer> */}
         </>
     )
 
@@ -56,7 +50,7 @@ const YoutubeContainer = styled.div`
     background: #ffffff;
     padding: 0.5rem 0.5rem;
     margin: 1rem 1rem;
-    border-radius: 24px;
+    border-radius: 5px;
     height: 20rem;
     display: grid;
     grid-template-columns: 1fr 2fr 0.2fr 2fr;
