@@ -18,6 +18,7 @@ import ReactTooltip from 'react-tooltip';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 
+// 메모: 멤버별 토픽 모델링 ?
 
 const Profile = ({ match }) => {
     const { username } = match.params
@@ -234,9 +235,9 @@ const Content1 = styled.div`
 const EmpathyScore = styled(Content1)``;
 const Content3 = styled(Content1)``;
 const Footer = styled.footer`
-  background: #ff9637;
+  background: #ffffff;
   grid-area: footer;
-  padding: 5rem;
+  padding: 3rem;
 `;
 
 export default Profile
