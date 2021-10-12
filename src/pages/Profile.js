@@ -86,6 +86,7 @@ const Profile = ({ match }) => {
           <h3> Heatmap </h3>
           <Heatmap />
           <h3>Wordcloud</h3>
+          {/* FIXME:  */}
           {/* <Wordcloud /> */}
         </ul>
       </EmpathyScoreBoard>

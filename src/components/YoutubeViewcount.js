@@ -35,7 +35,7 @@ export default function YoutubeViewcount() {
                     <h3>댓글</h3>
                 </YoutubeGrid>
                 <YoutubeGrid>
-                    <h3>😊</h3>
+                    <h3>공감지수</h3>
                 </YoutubeGrid>
                 <YoutubeGrid>
                     <h3>워드클라우드</h3>
@@ -53,8 +53,10 @@ const YoutubeContainer = styled.div`
     border-radius: 5px;
     height: 20rem;
     display: grid;
-    grid-template-columns: 1fr 2fr 0.2fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 2fr 0.5fr 2fr;
     grid-template-areas: 
+        "YoutubeGrid YoutubeGrid YoutubeGrid YoutubeGrid"
         "YoutubeGrid YoutubeGrid YoutubeGrid YoutubeGrid"
 
 `
