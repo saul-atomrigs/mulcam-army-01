@@ -2,8 +2,7 @@ import Box from '@mui/material/Box';
 import YouTube from 'react-youtube';
 import profileData from '../data/profileData'
 import styled from 'styled-components'
-
-
+import SimpleTagcloud from './Tagcloud'
 
 export default function YoutubeViewcount() {
     // 유튜브 썸네일 옵션: 
@@ -38,7 +37,8 @@ export default function YoutubeViewcount() {
                     <h3>공감지수</h3>
                 </YoutubeGrid>
                 <YoutubeGrid>
-                    <h3>워드클라우드</h3>
+                    <h3>댓글Wordcloud</h3>
+                    <SimpleTagcloud />
                 </YoutubeGrid>
             </YoutubeContainer>
         </>
@@ -47,7 +47,7 @@ export default function YoutubeViewcount() {
 }
 
 const YoutubeContainer = styled.div`
-    background: #ffffff;
+    background: #1f2128;
     padding: 0.5rem 0.5rem;
     margin: 1rem 1rem;
     border-radius: 5px;
@@ -62,7 +62,8 @@ const YoutubeContainer = styled.div`
 `
 
 const YoutubeGrid = styled.div`
-    background: #f0f0f0;
+    background: #000000;
     margin: 0 0 0 0.2rem;
     color: darkgray;
+    border-radius:24px;
 `

@@ -8,7 +8,6 @@ import Charts from '../components/Charts';
 import SelectChart from '../components/SelectChart';
 import SelectSNS from '../components/SelectSNS';
 import Heatmap from '../components/Heatmap';
-import Wordcloud from '../components/Wordcloud.tsx';
 
 import { TwitterTimelineEmbed } from 'react-twitter-embed'
 import InstagramEmbed from 'react-instagram-embed';
@@ -84,10 +83,7 @@ const Profile = ({ match }) => {
       <EmpathyScoreBoard>
         <ul>
           <h3> Heatmap </h3>
-          <Heatmap />
-          <h3>Wordcloud</h3>
-          {/* FIXME:  */}
-          {/* <Wordcloud /> */}
+          {/* <Heatmap /> */}
         </ul>
       </EmpathyScoreBoard>
       <ContentBox>
@@ -162,6 +158,7 @@ const Main = styled.main`
   background: #1f2128;
   color: white;
   grid-area: main;
+  border-radius: 24px;
 
 `;
 const SideBar = styled.div`
@@ -234,6 +231,7 @@ const Content1 = styled.div`
   padding: 0.25rem;
   width: 100%;
   height: 100%;
+  border-radius:24px;
 `;
 const EmpathyScore = styled(Content1)``;
 const Content3 = styled(Content1)``;
