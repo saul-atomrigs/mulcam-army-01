@@ -1,4 +1,7 @@
 import Box from '@mui/material/Box';
+import HelpIcon from '@mui/icons-material/Help';
+import ReactTooltip from 'react-tooltip';
+
 import YouTube from 'react-youtube';
 import profileData from '../data/profileData'
 import styled from 'styled-components'
@@ -19,6 +22,11 @@ export default function YoutubeViewcount() {
         },
     }
 
+    const commentStyle = {
+        textAlign: 'left',
+        margin: '1rem'
+    }
+
 
     // 유튜브 뷰카운트 내용: 
     return (
@@ -30,38 +38,75 @@ export default function YoutubeViewcount() {
                     <p>좋아요(+)</p>
                     <p>싫어요(+)</p>
                 </YoutubeGrid>
-                <YoutubeGrid>
-                    <h3>댓글</h3>
+                <YoutubeGrid style={{ display: 'flex' }}>
+                    <div style={{ flex: '0 0 65%' }}>
+
+                        <h5>댓글</h5>
+                        {/*TODO: 스크롤 */}
+                        <p style={commentStyle}>This is a perfect song.</p>
+                        <p style={commentStyle}>MORE & MORE COMMENTS!!!</p>
+                        <p style={commentStyle}>"No one:
+                            Me every twice's comeback:
+
+                            'Omg this is their best comeback'"</p>
+                    </div>
+                    {/* <YoutubeGrid> */}
+                    <div stye={{ flex: '1' }}>
+
+                        <p data-tip="댓글별 좋아요 수와 긍정점수를 이용하여 도출된 지수입니다">
+                            <h5> 공감지수 ❔ </h5>
+                        </p>
+                        <ReactTooltip
+                            place='bottom'
+                            effect='solid' />
+                        {/* 스크롤 */}
+                        <p>1.0</p>
+                        <p>0.8</p>
+                        <p>0.5</p>
+                    </div>
                 </YoutubeGrid>
-                <YoutubeGrid>
-                    <h3>공감지수</h3>
-                </YoutubeGrid>
-                <YoutubeGrid>
-                    <h3>댓글Wordcloud</h3>
+                {/* </YoutubeGrid> */}
+                <YoutubeGridWordcloud>
+                    <h5>댓글 Wordcloud</h5>
                     <SimpleTagcloud />
-                </YoutubeGrid>
+                </YoutubeGridWordcloud>
+                {/* <YoutubeGridLanguage>
+                    <h3>언어분포</h3>
+                </YoutubeGridLanguage> */}
             </YoutubeContainer>
         </>
     )
-
 }
 
 const YoutubeContainer = styled.div`
     background: #1f2128;
-    padding: 0.5rem 0.5rem;
+    padding: 0.5rem 0.1rem;
     margin: 1rem 1rem;
     border-radius: 5px;
     height: 20rem;
     display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 2fr 0.5fr 2fr;
+    grid-template-rows: 1fr 0.5fr;
+    grid-template-columns: 1fr 2fr 1fr;
     grid-template-areas: 
-        "YoutubeGrid YoutubeGrid YoutubeGrid YoutubeGrid"
-        "YoutubeGrid YoutubeGrid YoutubeGrid YoutubeGrid"
-
+        "YoutubeGrid YoutubeGrid YoutubeGridWordcloud"
+        "YoutubeGrid YoutubeGrid YoutubeGridWordcloud"
 `
 
 const YoutubeGrid = styled.div`
+    background: #000000;
+    margin: 0 0 0 0.2rem;
+    color: darkgray;
+    border-radius:24px;
+`
+
+const YoutubeGridWordcloud = styled.div`
+    background: #000000;
+    margin: 0 0 0 0.2rem;
+    color: darkgray;
+    border-radius:24px;
+`
+
+const YoutubeGridLanguage = styled.div`
     background: #000000;
     margin: 0 0 0 0.2rem;
     color: darkgray;

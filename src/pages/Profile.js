@@ -25,6 +25,8 @@ const Profile = ({ match }) => {
   const { username } = match.params
   const profile = profileData[username]
 
+  var ctx = 'myChart';
+
   if (!profile) {
     return (
       <div>
@@ -37,6 +39,7 @@ const Profile = ({ match }) => {
     <Container>
       {/* 헤더 */}
       <NavBar1><MenuIcon /></NavBar1>
+      <NavBar2></NavBar2>
       <NavBar4><Link to='/'><CloseIcon /></Link></NavBar4>
 
       {/* 메인 페이지 */}
@@ -70,7 +73,7 @@ const Profile = ({ match }) => {
       <Main>
         <div>
         </div>
-        <p data-tip="영상별 스탯 크롤링, 감성분석을 이용한 댓글분석, 토픽모델링">
+        <p data-tip="Crawler를 활용한 영상별 주요 스탯과 댓글 분석입니다">
           <h3> Youtube Databoard
             <HelpIcon sx={{ size: 'small' }} />
           </h3>
@@ -81,10 +84,7 @@ const Profile = ({ match }) => {
         <YoutubeViewcount />
       </Main>
       <EmpathyScoreBoard>
-        <ul>
-          <h3> Heatmap </h3>
-          {/* <Heatmap /> */}
-        </ul>
+
       </EmpathyScoreBoard>
       <ContentBox>
         <Content1>
@@ -112,7 +112,7 @@ const Container = styled.div`
   display: grid;
   height: 80vh;
   grid-template-rows: 1fr 1fr 0.5fr 0.5fr 0.5fr;
-  grid-temlate-columns: 0.5fr 1fr 1fr 1fr;
+  grid-temlate-columns: 0.2fr 1fr 1fr 1fr;
   grid-template-areas:
     "nav1 nav2 nav2 nav4"
     "sidebar main main main"
@@ -146,7 +146,12 @@ const NavBar1 = styled.nav`
 
 const NavBar2 = styled.nav`
   grid-area: nav2;
+  background: #BCBCBC;
+  border-radius: 14px;
   padding: 1rem;
+  margin: 0.3rem;
+  width: 15rem;
+  cursor: text;
   `
 const NavBar4 = styled.nav`
   grid-area: nav4;
@@ -165,7 +170,7 @@ const SideBar = styled.div`
   background: #eff0e4;
   grid-area: sidebar;
   text-align: left;
-  padding: 1rem;
+  padding: 0.5rem;
 
 `;
 
@@ -209,11 +214,13 @@ const ContentBox = styled.div`
 `;
 
 const EmpathyScoreBoard = styled.div`
+  background: #EEDDEE;
   display: flex;
   gap: 0.25rem;
   align-items: center;
   grid-area: EmpathyScore;
   justify-content: center;
+  border-radius: 24px;
   @media (max-width: 550px) {
     flex-direction: column;
   }
