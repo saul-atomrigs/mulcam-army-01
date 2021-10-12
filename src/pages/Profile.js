@@ -73,20 +73,18 @@ const Profile = ({ match }) => {
                     <h3> Youtube Databoard
                         <HelpIcon sx={{ size: 'small' }} />
                     </h3>
-                    {/* <nav > */}
-                    {/* </nav> */}
                 </p>
                 <ReactTooltip
                     place='bottom'
                     effect='solid' />
                 <YoutubeViewcount />
             </Main>
-            <EmpathyScoreBoard>
+            {/* <EmpathyScoreBoard>
                 <ul>
                     <h3> 공감지수 </h3>
                     <h1> {profile.score} </h1>
                 </ul>
-            </EmpathyScoreBoard>
+            </EmpathyScoreBoard> */}
             <ContentBox>
                 <Content1>
                     <SelectChart />
