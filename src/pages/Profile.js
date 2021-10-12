@@ -7,6 +7,8 @@ import YoutubeViewcount from '../components/YoutubeViewcount';
 import Charts from '../components/Charts';
 import SelectChart from '../components/SelectChart';
 import SelectSNS from '../components/SelectSNS';
+import Heatmap from '../components/Heatmap';
+import Wordcloud from '../components/Wordcloud.tsx';
 
 import { TwitterTimelineEmbed } from 'react-twitter-embed'
 import InstagramEmbed from 'react-instagram-embed';
@@ -21,89 +23,91 @@ import Box from '@mui/material/Box';
 // 메모: 멤버별 토픽 모델링 ?
 
 const Profile = ({ match }) => {
-    const { username } = match.params
-    const profile = profileData[username]
+  const { username } = match.params
+  const profile = profileData[username]
 
-    if (!profile) {
-        return (
-            <div>
-                존재하지 않는 유저입니다
-            </div>
-        )
-    }
-    // 정상 경로: 
+  if (!profile) {
     return (
-        <Container>
-            {/* 헤더 */}
-            <NavBar1><MenuIcon /></NavBar1>
-            <NavBar4><Link to='/'><CloseIcon /></Link></NavBar4>
-
-            {/* 메인 페이지 */}
-            {/* 왼쪽 사이드 컬럼 */}
-            <SideBar>
-                <img
-                    src={profile.img}
-                    height="200"
-                    alt={username} />
-                <h3>
-                    {username}
-                </h3>
-                <h5>
-                    (@{profile.twitter})
-                </h5>
-                <SNSLink>페이스북</SNSLink>
-                <SNSLink>유튜브</SNSLink>
-                <SNSLink>팬카페</SNSLink>
-                <br />
-                <SNSLink>틱톡</SNSLink>
-                <SNSLink>트위터</SNSLink>
-                <SNSLink>인스타그램</SNSLink>
-                {/* TAB 또는 아이돌 선택 스크롤) */}
-                <h4>인기아이돌</h4>
-                <Link to='/profile/bts' style={{ textDecoration: 'none' }}><SideBarLink>BTS</SideBarLink></Link>
-                <Link to='/profile/blackpink' style={{ textDecoration: 'none' }}><SideBarLink>블랙핑크</SideBarLink></Link>
-                <Link to='/profile/twice' style={{ textDecoration: 'none' }}><SideBarLink>트와이스</SideBarLink></Link>
-            </SideBar>
-
-            {/* 오른쪽 사이드 컬럼 */}
-            <Main>
-                <div>
-                </div>
-                <p data-tip="영상별 스탯 크롤링, 감성분석을 이용한 댓글분석, 토픽모델링">
-                    <h3> Youtube Databoard
-                        <HelpIcon sx={{ size: 'small' }} />
-                    </h3>
-                </p>
-                <ReactTooltip
-                    place='bottom'
-                    effect='solid' />
-                <YoutubeViewcount />
-            </Main>
-            {/* <EmpathyScoreBoard>
-                <ul>
-                    <h3> 공감지수 </h3>
-                    <h1> {profile.score} </h1>
-                </ul>
-            </EmpathyScoreBoard> */}
-            <ContentBox>
-                <Content1>
-                    <SelectChart />
-                    <Charts />
-                </Content1>
-                <EmpathyScore>
-                </EmpathyScore>
-                <Content3>
-                    <SelectSNS />
-                    <TwitterTimelineEmbed
-                        sourceType="profile"
-                        screenName={profile.twitter}
-                        options={{ height: '400', borderRadius: '24px' }}
-                    />
-                </Content3>
-            </ContentBox>
-            <Footer />
-        </Container >
+      <div>
+        존재하지 않는 유저입니다
+      </div>
     )
+  }
+  // 정상 경로: 
+  return (
+    <Container>
+      {/* 헤더 */}
+      <NavBar1><MenuIcon /></NavBar1>
+      <NavBar4><Link to='/'><CloseIcon /></Link></NavBar4>
+
+      {/* 메인 페이지 */}
+      {/* 왼쪽 사이드 컬럼 */}
+      <SideBar>
+        <img
+          src={profile.img}
+          height="200"
+          alt={username} />
+        <h3>
+          {username}
+        </h3>
+        <h5>
+          (@{profile.twitter})
+        </h5>
+        <SNSLink>페이스북</SNSLink>
+        <SNSLink>유튜브</SNSLink>
+        <SNSLink>팬카페</SNSLink>
+        <br />
+        <SNSLink>틱톡</SNSLink>
+        <SNSLink>트위터</SNSLink>
+        <SNSLink>인스타그램</SNSLink>
+        {/* TAB 또는 아이돌 선택 스크롤) */}
+        <h4>인기아이돌</h4>
+        <Link to='/profile/bts' style={{ textDecoration: 'none' }}><SideBarLink>BTS</SideBarLink></Link>
+        <Link to='/profile/blackpink' style={{ textDecoration: 'none' }}><SideBarLink>블랙핑크</SideBarLink></Link>
+        <Link to='/profile/twice' style={{ textDecoration: 'none' }}><SideBarLink>트와이스</SideBarLink></Link>
+      </SideBar>
+
+      {/* 오른쪽 사이드 컬럼 */}
+      <Main>
+        <div>
+        </div>
+        <p data-tip="영상별 스탯 크롤링, 감성분석을 이용한 댓글분석, 토픽모델링">
+          <h3> Youtube Databoard
+            <HelpIcon sx={{ size: 'small' }} />
+          </h3>
+        </p>
+        <ReactTooltip
+          place='bottom'
+          effect='solid' />
+        <YoutubeViewcount />
+      </Main>
+      <EmpathyScoreBoard>
+        <ul>
+          <h3> Heatmap </h3>
+          <Heatmap />
+          <h3>Wordcloud</h3>
+          {/* <Wordcloud /> */}
+        </ul>
+      </EmpathyScoreBoard>
+      <ContentBox>
+        <Content1>
+          <SelectChart />
+          <Charts />
+        </Content1>
+        <EmpathyScore>
+        </EmpathyScore>
+        <Content3>
+          <SelectSNS />
+          <TwitterTimelineEmbed
+            sourceType="profile"
+            screenName={profile.twitter}
+            options={{ height: '400', borderRadius: '24px' }}
+          />
+        </Content3>
+      </ContentBox>
+      <Footer />
+    </Container >
+  )
 }
 
 
