@@ -51,7 +51,14 @@ export default function YoutubeViewcount() {
                             'Omg this is their best comeback'"</p>
                     </div>
                     {/* <YoutubeGrid> */}
-                    <div stye={{ flex: '1' }}>
+                    <div style={{ flex: '1' }}>
+                        <h5>좋아요</h5>
+                        <p>1.5만</p>
+                        <p>8.5천</p>
+                        <p>5.2천</p>
+                    </div>
+
+                    <div style={{ flex: '1' }}>
 
                         <p data-tip="댓글별 좋아요 수와 긍정점수를 이용하여 도출된 지수입니다">
                             <h5> 공감지수 ❔ </h5>
@@ -86,7 +93,7 @@ const YoutubeContainer = styled.div`
     height: 20rem;
     display: grid;
     grid-template-rows: 1fr 0.5fr;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 3fr 1fr;
     grid-template-areas: 
         "YoutubeGrid YoutubeGrid YoutubeGridWordcloud"
         "YoutubeGrid YoutubeGrid YoutubeGridWordcloud"

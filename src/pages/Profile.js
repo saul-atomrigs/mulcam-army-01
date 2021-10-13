@@ -74,7 +74,7 @@ const Profile = ({ match }) => {
         <div>
         </div>
         <p data-tip="Crawler를 활용한 영상별 주요 스탯과 댓글 분석입니다">
-          <h3> Youtube Databoard
+          <h3> Youtube Databoard&nbsp;
             <HelpIcon sx={{ size: 'small' }} />
           </h3>
         </p>
@@ -83,16 +83,14 @@ const Profile = ({ match }) => {
           effect='solid' />
         <YoutubeViewcount />
       </Main>
-      <EmpathyScoreBoard>
-
-      </EmpathyScoreBoard>
       <ContentBox>
         <Content1>
           <SelectChart />
           <Charts />
         </Content1>
-        <EmpathyScore>
-        </EmpathyScore>
+        <Content2>
+          <h3>Topic 모델링</h3>
+        </Content2>
         <Content3>
           <SelectSNS />
           <TwitterTimelineEmbed
@@ -102,7 +100,10 @@ const Profile = ({ match }) => {
           />
         </Content3>
       </ContentBox>
-      <Footer />
+      <Footer>
+        <h5>KPOP 아티스트 데이터분석 웹서비스</h5>
+        <h6>by mulcamARMY</h6>
+      </Footer>
     </Container >
   )
 }
@@ -240,12 +241,12 @@ const Content1 = styled.div`
   height: 100%;
   border-radius:24px;
 `;
-const EmpathyScore = styled(Content1)``;
+const Content2 = styled(Content1)``;
 const Content3 = styled(Content1)``;
 const Footer = styled.footer`
   background: #ffffff;
   grid-area: footer;
-  padding: 3rem;
+  padding: 1rem;
 `;
 
 export default Profile
