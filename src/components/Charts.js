@@ -78,5 +78,4 @@ const SelectChart = styled.div`
                 display: inline-block;
                 width: 15%;
                 padding: 0.6rem;
-  }
-                `
+  }`

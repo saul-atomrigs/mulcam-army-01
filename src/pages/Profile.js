@@ -8,13 +8,14 @@ import TwitterTimeline from '../components/TwitterTimeline'
 import Charts from '../components/Charts';
 import SelectChart from '../components/SelectChart';
 import SelectSNS from '../components/SelectSNS';
+import WhiteTooltip from '../components/WhiteTooltip';
 
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import HelpIcon from '@mui/icons-material/Help';
 import ReactTooltip from 'react-tooltip';
-
-// 메모: 멤버별 토픽 모델링 ?
+import TextField from '@mui/material/TextField';
+import SearchIcon from '@mui/icons-material/Search';
 
 const Profile = ({ match }) => {
   const { username } = match.params
@@ -32,7 +33,13 @@ const Profile = ({ match }) => {
     < Container >
       {/* 헤더 */}
       < NavBar1 > <MenuIcon /></ NavBar1>
-      <NavBar2></NavBar2>
+      {/* <NavBar2></NavBar2> */}
+      <TextField
+        id="search-bar"
+        label={<SearchIcon />}
+        variant="outlined"
+        placeholder="KPOP 아티스트, 곡명..."
+      />
       <NavBar4><Link to='/'><CloseIcon /></Link></NavBar4>
 
       {/* 메인 페이지 */}
@@ -65,15 +72,11 @@ const Profile = ({ match }) => {
       {/* 오른쪽 사이드 컬럼 */}
       <Main>
         <div>
-        </div>
-        <p data-tip="Crawler를 활용한 영상별 주요 스탯과 댓글 분석입니다">
           <h3> Youtube Databoard&nbsp;
-            <HelpIcon sx={{ size: 'small' }} />
+            <WhiteTooltip title="자체 제작한 crawler코드를 이용하여 수집한 KPOP아티스트별 주요 동영상 스탯과 댓글 감성분석기입니다" />
           </h3>
-        </p>
-        <ReactTooltip
-          place='bottom'
-          effect='solid' />
+        </div>
+        {/* </p> */}
         <YoutubeViewcount videoId={profile.youtubeVideoId} />
       </Main>
       <ContentBox>
@@ -82,7 +85,8 @@ const Profile = ({ match }) => {
           <Charts />
         </Content1>
         <Content2>
-          <h3>Topic 모델링</h3>
+          <h3>Topic 모델링 (예시, 작업중)</h3>
+          <img src="https://lovit.github.io/assets/figures/tsne_mnist.png" width="100%" alt="" />
         </Content2>
         <Content3>
           {/* <SelectSNS /> */}

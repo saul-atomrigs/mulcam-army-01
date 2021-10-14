@@ -3,6 +3,7 @@ import ReactTooltip from 'react-tooltip';
 import YouTube from 'react-youtube';
 import styled from 'styled-components'
 import SimpleTagcloud from './Tagcloud'
+import WhiteTooltip from './WhiteTooltip'
 
 export default function YoutubeViewcount(props) {
     // 유튜브 썸네일 옵션: 
@@ -20,7 +21,7 @@ export default function YoutubeViewcount(props) {
     }
 
     const commentStyle = {
-        textAlign: 'center',
+        textAlign: 'left',
         margin: '1rem'
     }
 
@@ -56,12 +57,14 @@ export default function YoutubeViewcount(props) {
 
                     <div style={{ flex: '1' }}>
 
-                        <p data-tip="댓글별 좋아요 수와 긍정점수를 이용하여 도출된 지수입니다">
-                            <h5> 공감지수 ❔ </h5>
-                        </p>
-                        <ReactTooltip
-                            place='bottom'
-                            effect='solid' />
+                        {/* <p data-tip="댓글별 좋아요 수와 긍정점수를 이용하여 도출된 지수입니다"> */}
+                        <h5> 공감지수
+                            <WhiteTooltip title="댓글별 좋아요 수와 긍정점수를 이용하여 도출된 지수입니다" placement="top" />
+                        </h5>
+                        {/* </p> */}
+                        {/* <ReactTooltip */}
+                        {/* place='bottom' */}
+                        {/* effect='solid' /> */}
                         {/* 스크롤 */}
                         <p>1.0</p>
                         <p>0.8</p>
