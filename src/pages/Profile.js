@@ -78,14 +78,14 @@ const Profile = ({ match }) => {
       </Main>
       <ContentBox>
         <Content1>
-          <SelectChart />
+          {/* <SelectChart /> */}
           <Charts />
         </Content1>
         <Content2>
           <h3>Topic 모델링</h3>
         </Content2>
         <Content3>
-          <SelectSNS />
+          {/* <SelectSNS /> */}
           <TwitterTimeline screenName={profile.twitter} key={profile.twitter} />
         </Content3>
       </ContentBox>
@@ -123,9 +123,6 @@ const Container = styled.div`
       "footer";
   }
 `;
-const NavBarHeader = styled.nav`
-  background: green;
-`
 
 const NavBar1 = styled.nav`
   grid-area: nav1;
@@ -163,11 +160,6 @@ const SideBar = styled.div`
 
 `;
 
-const ProfileImg = styled.div`
-  text-align: center;
-  position: fixed;
-`
-
 const SNSLink = styled.div`
 text-align: left;
 display: inline-block;
@@ -202,26 +194,6 @@ const ContentBox = styled.div`
   }
 `;
 
-const EmpathyScoreBoard = styled.div`
-  background: #EEDDEE;
-  display: flex;
-  gap: 0.25rem;
-  align-items: center;
-  grid-area: EmpathyScore;
-  justify-content: center;
-  border-radius: 24px;
-  @media (max-width: 550px) {
-    flex-direction: column;
-  }
-`;
-
-const YoutubeViewcountBox = styled.div`
-    background: #ffffff;
-    padding: 0.25rem;
-    border-radius: 24px;
-    width: 100%;
-    height: 5rem;
-`
 const Content1 = styled.div`
   background: #f0f0f0;
   padding: 0.25rem;

@@ -1,11 +1,22 @@
 import Box from '@mui/material/Box';
 import ReactTooltip from 'react-tooltip';
 import HelpIcon from '@mui/icons-material/Help';
+import styled from 'styled-components'
 
 import ChartTable from './ChartTable'
 
 
 export default function Charts() {
+    const SelectChartStyle = {
+        bgcolor: '#fcfcfc',
+        color: '#000000',
+        height: '1.5rem',
+        width: '90%',
+        borderRadius: '23px',
+        padding: '0.5rem',
+        textAlign: 'center',
+        pointer: 'cursor'
+    }
     return (
         <>
             <Box
@@ -22,15 +33,40 @@ export default function Charts() {
                 <ReactTooltip
                     place='bottom'
                     effect='solid' />
-            </Box>
-            {/* 
-            <Box
-                sx={{
-                    bgcolor: '#fcfcfc',
-                    height: '20rem',
-                    borderRadius: '24px',
-                }}>
-            </Box> */}
+            </Box >
+            <SelectChart>
+                <Box
+                    sx={SelectChartStyle}>
+                    Spotify
+                </Box>
+            </SelectChart>
+            <SelectChart>
+                <Box
+                    sx={SelectChartStyle}>
+                    melon
+                </Box>
+            </SelectChart>
+            <SelectChart>
+                <Box
+                    sx={SelectChartStyle}>
+
+                    gini
+                </Box>
+            </SelectChart>
+            <SelectChart>
+                <Box
+                    sx={SelectChartStyle}>
+
+                    bugs
+                </Box>
+            </SelectChart>
+            <SelectChart>
+                <Box
+                    sx={SelectChartStyle}>
+
+                    vive
+                </Box>
+            </SelectChart>
 
             {/* 챠트 */}
             <ChartTable />
@@ -38,3 +74,9 @@ export default function Charts() {
     )
 }
 
+const SelectChart = styled.div`
+                display: inline-block;
+                width: 15%;
+                padding: 0.6rem;
+  }
+                `
