@@ -7,10 +7,11 @@ import YoutubeViewcount from '../components/YoutubeViewcount';
 import Charts from '../components/Charts';
 import SelectChart from '../components/SelectChart';
 import SelectSNS from '../components/SelectSNS';
-import Heatmap from '../components/Heatmap';
 
 import { TwitterTimelineEmbed } from 'react-twitter-embed'
 import InstagramEmbed from 'react-instagram-embed';
+import YouTube from 'react-youtube';
+
 
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
@@ -25,7 +26,18 @@ const Profile = ({ match }) => {
   const { username } = match.params
   const profile = profileData[username]
 
-  var ctx = 'myChart';
+  const opts = {
+    height: '200',
+    width: '360',
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+      autoplay: 1,
+      mute: 1,
+      controls: 1,
+      showinfo: 0,
+      loop: 1,
+    },
+  }
 
   if (!profile) {
     return (
@@ -36,9 +48,9 @@ const Profile = ({ match }) => {
   }
   // 정상 경로: 
   return (
-    <Container>
+    < Container >
       {/* 헤더 */}
-      <NavBar1><MenuIcon /></NavBar1>
+      < NavBar1 > <MenuIcon /></ NavBar1>
       <NavBar2></NavBar2>
       <NavBar4><Link to='/'><CloseIcon /></Link></NavBar4>
 
@@ -81,7 +93,7 @@ const Profile = ({ match }) => {
         <ReactTooltip
           place='bottom'
           effect='solid' />
-        <YoutubeViewcount />
+        <YoutubeViewcount videoId={profile.youtubeVideoId} />
       </Main>
       <ContentBox>
         <Content1>
@@ -136,7 +148,6 @@ const Container = styled.div`
 `;
 const NavBarHeader = styled.nav`
   background: green;
-
 `
 
 const NavBar1 = styled.nav`

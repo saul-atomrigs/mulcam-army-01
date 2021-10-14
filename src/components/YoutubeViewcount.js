@@ -1,13 +1,16 @@
+import React from 'react';
+
 import Box from '@mui/material/Box';
 import HelpIcon from '@mui/icons-material/Help';
 import ReactTooltip from 'react-tooltip';
 
 import YouTube from 'react-youtube';
 import profileData from '../data/profileData'
+
 import styled from 'styled-components'
 import SimpleTagcloud from './Tagcloud'
 
-export default function YoutubeViewcount() {
+export default function YoutubeViewcount(props) {
     // 유튜브 썸네일 옵션: 
     const opts = {
         height: '200',
@@ -23,17 +26,19 @@ export default function YoutubeViewcount() {
     }
 
     const commentStyle = {
-        textAlign: 'left',
+        textAlign: 'center',
         margin: '1rem'
     }
 
+    // const { username } = prop.match.params
+    // const profile = profileData[username]
 
     // 유튜브 뷰카운트 내용: 
     return (
         <>
             <YoutubeContainer>
                 <YoutubeGrid>
-                    <YouTube videoId='dyRsYk0LyA8' opts={opts}></YouTube>
+                    <YouTube videoId={props.videoId} opts={opts}></YouTube>
                     <p>조회수(+)</p>
                     <p>좋아요(+)</p>
                     <p>싫어요(+)</p>
@@ -104,6 +109,7 @@ const YoutubeGrid = styled.div`
     margin: 0 0 0 0.2rem;
     color: darkgray;
     border-radius:24px;
+    max-height: 20rem;
 `
 
 const YoutubeGridWordcloud = styled.div`
@@ -111,6 +117,7 @@ const YoutubeGridWordcloud = styled.div`
     margin: 0 0 0 0.2rem;
     color: darkgray;
     border-radius:24px;
+    max-height: 20rem;
 `
 
 const YoutubeGridLanguage = styled.div`
