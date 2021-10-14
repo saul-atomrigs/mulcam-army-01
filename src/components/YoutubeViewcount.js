@@ -1,12 +1,6 @@
 import React from 'react';
-
-import Box from '@mui/material/Box';
-import HelpIcon from '@mui/icons-material/Help';
 import ReactTooltip from 'react-tooltip';
-
 import YouTube from 'react-youtube';
-import profileData from '../data/profileData'
-
 import styled from 'styled-components'
 import SimpleTagcloud from './Tagcloud'
 
@@ -29,9 +23,6 @@ export default function YoutubeViewcount(props) {
         textAlign: 'center',
         margin: '1rem'
     }
-
-    // const { username } = prop.match.params
-    // const profile = profileData[username]
 
     // 유튜브 뷰카운트 내용: 
     return (

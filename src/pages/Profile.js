@@ -4,40 +4,21 @@ import styled from 'styled-components'
 
 import profileData from '../data/profileData'
 import YoutubeViewcount from '../components/YoutubeViewcount';
+import TwitterTimeline from '../components/TwitterTimeline'
 import Charts from '../components/Charts';
 import SelectChart from '../components/SelectChart';
 import SelectSNS from '../components/SelectSNS';
-
-import { TwitterTimelineEmbed } from 'react-twitter-embed'
-import InstagramEmbed from 'react-instagram-embed';
-import YouTube from 'react-youtube';
-
 
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import HelpIcon from '@mui/icons-material/Help';
 import ReactTooltip from 'react-tooltip';
-import Stack from '@mui/material/Stack';
-import Box from '@mui/material/Box';
 
 // 메모: 멤버별 토픽 모델링 ?
 
 const Profile = ({ match }) => {
   const { username } = match.params
   const profile = profileData[username]
-
-  const opts = {
-    height: '200',
-    width: '360',
-    playerVars: {
-      // https://developers.google.com/youtube/player_parameters
-      autoplay: 1,
-      mute: 1,
-      controls: 1,
-      showinfo: 0,
-      loop: 1,
-    },
-  }
 
   if (!profile) {
     return (
@@ -105,11 +86,7 @@ const Profile = ({ match }) => {
         </Content2>
         <Content3>
           <SelectSNS />
-          <TwitterTimelineEmbed
-            sourceType="profile"
-            screenName={profile.twitter}
-            options={{ height: '400', borderRadius: '24px' }}
-          />
+          <TwitterTimeline screenName={profile.twitter} key={profile.twitter} />
         </Content3>
       </ContentBox>
       <Footer>
