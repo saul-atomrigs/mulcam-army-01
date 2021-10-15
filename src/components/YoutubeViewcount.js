@@ -31,9 +31,9 @@ export default function YoutubeViewcount(props) {
             <YoutubeContainer>
                 <YoutubeGrid>
                     <YouTube videoId={props.videoId} opts={opts}></YouTube>
-                    <p>조회수(+)</p>
-                    <p>좋아요(+)</p>
-                    <p>싫어요(+)</p>
+                    <p>조회수:  4.9억회</p>
+                    <p>좋아요:  1.3백만</p>
+                    <p>댓글수:  2.1백만</p>
                 </YoutubeGrid>
                 <YoutubeGrid style={{ display: 'flex' }}>
                     <div style={{ flex: '0 0 65%' }}>
@@ -46,39 +46,34 @@ export default function YoutubeViewcount(props) {
                             Me every twice's comeback:
 
                             'Omg this is their best comeback'"</p>
+                        <p style={commentStyle}>Don’t call yourself a kpop fan if you don’t know this song.</p>
+                        <p style={commentStyle}>Let’s support her by voting next week!</p>
                     </div>
-                    {/* <YoutubeGrid> */}
                     <div style={{ flex: '1' }}>
                         <h5>좋아요</h5>
                         <p>1.5만</p>
                         <p>8.5천</p>
                         <p>5.2천</p>
+                        <p>4.2천</p>
+                        <p>2.7천</p>
                     </div>
 
                     <div style={{ flex: '1' }}>
 
-                        {/* <p data-tip="댓글별 좋아요 수와 긍정점수를 이용하여 도출된 지수입니다"> */}
                         <h5> 공감지수
                             <WhiteTooltip title="댓글별 좋아요 수와 긍정점수를 이용하여 도출된 지수입니다" placement="top" />
                         </h5>
-                        {/* </p> */}
-                        {/* <ReactTooltip */}
-                        {/* place='bottom' */}
-                        {/* effect='solid' /> */}
-                        {/* 스크롤 */}
                         <p>1.0</p>
                         <p>0.8</p>
                         <p>0.5</p>
+                        <p>0.3</p>
+                        <p>0.2</p>
                     </div>
                 </YoutubeGrid>
-                {/* </YoutubeGrid> */}
                 <YoutubeGridWordcloud>
                     <h5>댓글 Wordcloud</h5>
                     <SimpleTagcloud />
                 </YoutubeGridWordcloud>
-                {/* <YoutubeGridLanguage>
-                    <h3>언어분포</h3>
-                </YoutubeGridLanguage> */}
             </YoutubeContainer>
         </>
     )
