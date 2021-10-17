@@ -15,7 +15,6 @@ const data = [
     { value: 'perfect', count: 12 },
     { value: 'comeback', count: 8 },
     { value: 'happy', count: 4 },
-
 ]
 
 const SimpleTagcloud = () => {
