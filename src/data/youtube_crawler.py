@@ -10,7 +10,7 @@ import pandas as pd
 
 start = time.time()
 
-artist = 'aespa'
+artist = ''
 
 filename = '/Users/sollee/Desktop/mulcam-army-01/src/data/stats_page_2023에스파aespa.csv'
 
