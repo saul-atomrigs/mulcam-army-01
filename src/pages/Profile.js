@@ -10,7 +10,6 @@ import TwitterTimeline from '../components/TwitterTimeline'
 import Charts from '../components/Charts';
 import WhiteTooltip from '../components/WhiteTooltip';
 import SimpleTagcloud from '../components/Tagcloud';
-// import topicmodelling from '../data/topicModelling.html'
 
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
@@ -173,6 +172,7 @@ const Profile = ({ match }) => {
           )
         } */}
 
+        <div id="ldavis_el42031401212785855522129856204"></div>
 
 
         <h5>KPOP 아티스트 데이터분석 웹서비스</h5>
