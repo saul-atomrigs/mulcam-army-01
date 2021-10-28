@@ -13,6 +13,7 @@ class Routes extends React.Component {
                 <Switch>
                     <Route exact path="/" component={Home} />
                     <Route exact path="/profile/:username" component={Profile} />
+                    <Route exact path="/profile/:username/topics" />
                     <Route exact path="/video/:youtubevideo" component={YoutubeViewcount} />
                 </Switch>
             </Router>

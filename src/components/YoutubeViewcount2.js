@@ -1,30 +1,56 @@
 import React from 'react';
 import YouTube from 'react-youtube';
-import styled from 'styled-components';
-import SimpleTagcloud from './Tagcloud';
-import WhiteTooltip from './WhiteTooltip';
-
-export default function YoutubeViewcount(props, { match }) {
-
-    // const { username } = match.params
-    // const profile = profileData[username]
+import styled from 'styled-components'
+import SimpleTagcloud from './Tagcloud'
+import WhiteTooltip from './WhiteTooltip'
+import profileData from '../data/profileData'
 
 
-    // 유튜브 뷰카운트 내용: 
+const YoutubeViewcount2 = ({ match }) => {
+    const { username } = match.params
+    const profile = profileData[username]
+
+    // 유튜브 썸네일 옵션: 
+    const opts = {
+        height: '200',
+        width: '360',
+        playerVars: {
+            // https://developers.google.com/youtube/player_parameters
+            autoplay: 1,
+            mute: 1,
+            controls: 1,
+            showinfo: 0,
+            loop: 1,
+        },
+    }
+
+    const commentStyle = {
+        textAlign: 'left',
+        margin: '1rem'
+    }
+
+    if (!profile) {
+        return (
+            <div>
+                존재하지 않는 유저입니다
+            </div>
+        )
+    }
+
     return (
         <>
             <YoutubeContainer>
                 <YoutubeGrid>
-                    <YouTube videoId={props.videoId} opts={opts}></YouTube>
+                    <YouTube videoId={profile.videoId} opts={opts}></YouTube>
                 </YoutubeGrid>
-                <YoutubeGrid style={{ display: 'flex' }} comments={props.youtubeComments} >
+                <YoutubeGrid style={{ display: 'flex' }} comments={profile.youtubeComments}>
                     <div style={{ flex: '0 0 65%' }}>
                         <h5>댓글</h5>
                         <p style={commentStyle}>This is a perfect song.</p>
                         <p style={commentStyle}>MORE & MORE COMMENTS!!!</p>
                         <p style={commentStyle}>Don’t call yourself a kpop fan if you don’t know this song.</p>
                         <p style={commentStyle}>Let’s support her by voting next week!</p>
-                        <p style={commentStyle}>{props.youtubeComments}</p>
+                        {/* <p style={commentStyle}>{profile.youtubeComments}</p> */}
                     </div>
                     <div style={{ flex: '1' }}>
                         <h5>좋아요</h5>
@@ -51,9 +77,7 @@ export default function YoutubeViewcount(props, { match }) {
                 </YoutubeGridWordcloud>
             </YoutubeContainer>
         </>
-
     )
-
 }
 
 const YoutubeContainer = styled.div`
@@ -85,21 +109,12 @@ const YoutubeGridWordcloud = styled.div`
     border-radius:24px;
     max-height: 20rem;
 `
-// 유튜브 썸네일 옵션: 
-const opts = {
-    height: '200',
-    width: '360',
-    playerVars: {
-        // https://developers.google.com/youtube/player_parameters
-        autoplay: 1,
-        mute: 1,
-        controls: 1,
-        showinfo: 0,
-        loop: 1,
-    },
-}
 
-const commentStyle = {
-    textAlign: 'left',
-    margin: '1rem'
-}
+const YoutubeGridLanguage = styled.div`
+    background: #000000;
+    margin: 0 0 0 0.2rem;
+    color: darkgray;
+    border-radius:24px;
+`
+
+export default YoutubeViewcount2

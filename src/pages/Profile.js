@@ -1,25 +1,40 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
+import YouTube from 'react-youtube';
+import $ from 'jquery';
 
 import profileData from '../data/profileData'
 import YoutubeViewcount from '../components/YoutubeViewcount';
 import TwitterTimeline from '../components/TwitterTimeline'
 import Charts from '../components/Charts';
-import SelectChart from '../components/SelectChart';
-import SelectSNS from '../components/SelectSNS';
 import WhiteTooltip from '../components/WhiteTooltip';
+import SimpleTagcloud from '../components/Tagcloud';
+// import topicmodelling from '../data/topicModelling.html'
 
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import HelpIcon from '@mui/icons-material/Help';
-import ReactTooltip from 'react-tooltip';
 import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
+
 
 const Profile = ({ match }) => {
   const { username } = match.params
   const profile = profileData[username]
+
+  // 유튜브 썸네일 옵션: 
+  const opts = {
+    height: '200',
+    width: '360',
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+      autoplay: 1,
+      mute: 1,
+      controls: 1,
+      showinfo: 0,
+      loop: 1,
+    },
+  }
 
   if (!profile) {
     return (
@@ -33,7 +48,6 @@ const Profile = ({ match }) => {
     < Container >
       {/* 헤더 */}
       < NavBar1 > <MenuIcon /></ NavBar1>
-      {/* <NavBar2></NavBar2> */}
       <TextField
         id="search-bar"
         label={<SearchIcon />}
@@ -64,21 +78,66 @@ const Profile = ({ match }) => {
         <SNSLink>인스타그램</SNSLink>
         {/* TAB 또는 아이돌 선택 스크롤) */}
         <h4>인기아이돌</h4>
+        <Link to='/profile/aespa' style={{ textDecoration: 'none' }}><SideBarLink>aespa</SideBarLink></Link>
         <Link to='/profile/bts' style={{ textDecoration: 'none' }}><SideBarLink>BTS</SideBarLink></Link>
         <Link to='/profile/blackpink' style={{ textDecoration: 'none' }}><SideBarLink>블랙핑크</SideBarLink></Link>
         <Link to='/profile/twice' style={{ textDecoration: 'none' }}><SideBarLink>트와이스</SideBarLink></Link>
       </SideBar>
 
       {/* 오른쪽 사이드 컬럼 */}
+      {/* <Main>
+        <div>
+          <h3> Youtube Databoard&nbsp;
+            <WhiteTooltip title="자체 제작한 crawler코드를 이용하여 수집한 KPOP아티스트별 주요 동영상 스탯과 댓글 감성분석기입니다" />
+          </h3>
+        </div>
+        <YoutubeViewcount videoId={profile.youtubeVideoId} comments={profile.youtubeComments} />
+      </Main> */}
+
       <Main>
         <div>
           <h3> Youtube Databoard&nbsp;
             <WhiteTooltip title="자체 제작한 crawler코드를 이용하여 수집한 KPOP아티스트별 주요 동영상 스탯과 댓글 감성분석기입니다" />
           </h3>
         </div>
-        {/* </p> */}
-        <YoutubeViewcount videoId={profile.youtubeVideoId} />
+        <YoutubeContainer>
+          <YoutubeGrid>
+            <YouTube videoId={profile.youtubeVideoId} opts={opts}></YouTube>
+          </YoutubeGrid>
+          <YoutubeGrid style={{ display: 'flex' }}>
+            <div style={{ flex: '0 0 65%' }}>
+              <h5>댓글</h5>
+              <p style={{ textAlign: 'left', margin: '1rem' }}>{profile.youtubeComments}</p>
+              <p style={{ textAlign: 'left', margin: '1rem' }}>{profile.youtubeComments2}</p>
+              <p style={{ textAlign: 'left', margin: '1rem' }}>{profile.youtubeComments3}</p>
+              <p style={{ textAlign: 'left', margin: '1rem' }}>{profile.youtubeComments4}</p>
+              <p style={{ textAlign: 'left', margin: '1rem' }}>{profile.youtubeComments5}</p>
+            </div>
+            <div style={{ flex: '1' }}>
+              <h5>좋아요</h5>
+              <p style={{ textAlign: 'left', margin: '1rem' }}>{profile.youtubeLikes}</p>
+              <p style={{ textAlign: 'left', margin: '1rem' }}>{profile.youtubeLikes2}</p>
+              <p style={{ textAlign: 'left', margin: '1rem' }}>{profile.youtubeLikes3}</p>
+            </div>
+
+            <div style={{ flex: '1' }}>
+
+              <h5> 공감지수
+                <WhiteTooltip title="댓글별 좋아요 수와 긍정점수를 이용하여 도출된 지수입니다" placement="top" />
+              </h5>
+              <p style={{ textAlign: 'left', margin: '1rem' }}>{profile.youtubeSentiment}</p>
+              <p style={{ textAlign: 'left', margin: '1rem' }}>{profile.youtubeSentiment2}</p>
+              <p style={{ textAlign: 'left', margin: '1rem' }}>{profile.youtubeSentiment3}</p>
+            </div>
+          </YoutubeGrid>
+          <YoutubeGridWordcloud>
+            <h5>댓글 Wordcloud</h5>
+            <SimpleTagcloud />
+          </YoutubeGridWordcloud>
+        </YoutubeContainer>
       </Main>
+
+
       <ContentBox>
         <Content1>
           {/* <SelectChart /> */}
@@ -91,9 +150,31 @@ const Profile = ({ match }) => {
         <Content3>
           {/* <SelectSNS /> */}
           <TwitterTimeline screenName={profile.twitter} key={profile.twitter} />
+
         </Content3>
+
       </ContentBox>
+
+
       <Footer>
+        {/* <div>
+          <div dangerouslySetInnerHTML={{ __html: rawHTML }}></div>
+        </div> */}
+
+        {/* fetchExternalHTML: function(fileName) {
+          Ajax.getJSON('src/data/topicModelling.html').then(
+            response => {
+              this.setState({
+                extHTML: response
+              });
+            }, err => {
+              //handle your error here
+            }
+          )
+        } */}
+
+
+
         <h5>KPOP 아티스트 데이터분석 웹서비스</h5>
         <h6>by mulcamARMY</h6>
       </Footer>
@@ -212,6 +293,51 @@ const Footer = styled.footer`
   grid-area: footer;
   padding: 1rem;
 `;
+
+const YoutubeGrid = styled.div`
+    background: #000000;
+    margin: 0 0 0 0.2rem;
+    color: darkgray;
+    border-radius:24px;
+    max-height: 20rem;
+`
+
+const YoutubeGridWordcloud = styled.div`
+    background: #000000;
+    margin: 0 0 0 0.2rem;
+    color: darkgray;
+    border-radius:24px;
+    max-height: 20rem;
+`
+
+const YoutubeContainer = styled.div`
+    background: #1f2128;
+    padding: 0.5rem 0.1rem;
+    margin: 1rem 1rem;
+    border-radius: 5px;
+    height: 17rem;
+    display: grid;
+    grid-template-rows: 1fr 0.5fr;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-areas: 
+        "YoutubeGrid YoutubeGrid YoutubeGridWordcloud"
+        "YoutubeGrid YoutubeGrid YoutubeGridWordcloud"
+`
+
+
+const stack = {
+  flexShrink: 0,
+  width: "90%",
+  height: 50,
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "space-evenly",
+  alignItems: "center",
+  backgroundColor: "#383838",
+  overflow: "visible",
+  borderRadius: 5,
+}
+
 
 export default Profile
 
